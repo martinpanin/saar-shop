@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import  Link from "next/link";
 import Head from "../components/Head";
-import Logo from "../components/Logo";
 
 
 
-class Index extends Component {
+class Category extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title:"Saar Cult",
+            title:"Category",
         }
     }
 
@@ -17,14 +16,9 @@ class Index extends Component {
         return(
             <React.Fragment>
                 <Head title={this.state.title} />
-                <Link href={'/category'}>
-                    <a href={'/category'} className={'mainLogo'}>
-                       <Logo  />
-                    </a>
-                </Link>
-               
+                
             </React.Fragment>
         );
     }
 }
-export default Index;
+export default Category;

@@ -1,4 +1,7 @@
-$color: #000;
+@import "./components/Colors";
+
+@import "./components/Home";
+
 body {
   margin: 0;
   padding: 0;

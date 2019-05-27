@@ -4,14 +4,23 @@ import  Link from "next/link";
 class Menu extends Component {
     render() {
         return(
-            <nav>
-                <Link  href={"/"}>
-                    <a>Link2</a>
+            <React.Fragment>
+            <nav className={'menu'}>
+                <Link href={"/"}>
+                    <a>Home</a>
                 </Link>
-                <Link  href={"/"}>
-                    <a>Link1</a>
+                <Link  href={"/services"}>
+                    <a>Services</a>
                 </Link>
+                <Link  href={"/portfolio"}>
+                    <a>Portfolio</a>
+                </Link>
+                <Link  href={"/contacts"}>
+                    <a>Contacts</a>
+                </Link>
+            
             </nav>
+            </React.Fragment>
         );
     }
 }

@@ -1,21 +1,10 @@
-import NextHead from "next/head";
-import React from "react";
-import Menu from "./Menu";
 import '../sass/style.scss';
-
-
-
 const Layout = (props) => (
-    <React.Fragment>
-        <NextHead>
-            <title>{props.title || "MyShop"}</title>
-            <meta name="title" content={props.title || "MyShop"}/>
-        </NextHead>
-        <Menu/>
-        <div className="container">
+        <section className="container">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+            <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="MTA2MzRlMjEtMmEwOC00YWI1LWFjNGItYWIzNzQ2YTVkMzNhNjM2MzgyOTkzMjcwMDM5OTk0"></script>
+            <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
             {props.children}
-        </div>
-    </React.Fragment>
+        </section>
 );
-
 export default Layout;
