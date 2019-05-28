@@ -1,10 +1,20 @@
 .container{
     height: 100vh;
     display: flex;
+    
     .mainLogo{
         margin:auto;
+        overflow: hidden;
         img{
             max-width: 450px;
+            animation-name: pulse;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
         }
     }
+}
+@keyframes pulse {
+    0%   {transform:scale(1);}
+    50%  {transform:scale(1.2);}
+    100% {transform:scale(1);}
 }
