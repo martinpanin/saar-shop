@@ -18,7 +18,7 @@ class Index extends Component {
             <React.Fragment>
                 <Head title={this.state.title} />
                 <Link href={'/category'}>
-                    <a href={'/category'} className={'mainLogo'}>
+                    <a href={'/category'}>
                        <Logo  />
                     </a>
                 </Link>

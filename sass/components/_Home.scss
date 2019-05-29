@@ -5,7 +5,12 @@
     .mainLogo{
         margin:auto;
         overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
         img{
+            margin: auto;
             max-width: 450px;
             animation-name: pulse;
             animation-duration: 5s;
