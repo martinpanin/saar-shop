@@ -10,7 +10,12 @@ app
     .prepare()
     .then(() => {
         const server = express()
-
+        server.get('/category/products', (req, res) => {
+            return app.render(req, res, '/products', { slug: req.params.slug })
+        })
+        server.get('/category/itemlist/', (req, res) => {
+            return app.render(req, res, '/itemlist', { slug: req.params.slug })
+        })
         server.get('*', (req, res) => {
             return handle(req, res)
         })

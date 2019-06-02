@@ -1,7 +1,9 @@
 .container{
     height: 100vh;
     display: flex;
-    
+    flex-flow: row wrap;
+    align-content: flex-start;
+    a{text-decoration: none;}
     .mainLogo{
         margin:auto;
         overflow: hidden;
@@ -10,6 +12,32 @@
         display: flex;
         align-items: center;
         img{
+            margin: auto;
+            max-width: 450px;
+            animation-name: pulse;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+    }
+    .loading{
+        margin:auto;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        text-decoration: none;
+        h3{
+            flex: 1 100%;
+            text-align: center;
+            color: white;
+            font-size: 26px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        img{
+            flex: 1 100%;
             margin: auto;
             max-width: 450px;
             animation-name: pulse;

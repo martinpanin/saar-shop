@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import  Link from "next/link";
 import Head from "../components/Head";
-import Logo from "../components/Logo";
 import axios from "axios";
-import LoremIpsum from "../components/LoremIpsum";
+import Loading from "../components/Loading";
 
 
 
@@ -35,15 +34,15 @@ class Category extends Component {
                 <h2 className="categoryList-title">Available categories ({cat.length})</h2>
                 {cat.map((cat) => {
                     return (
-                        <Link href={'/category/products?title='+ cat.id} key={cat.id} >
-                            <a style={{backgroundImage: `url("http:/167.99.16.124:5001${cat.image.url}")`}}><span>{cat.name}</span></a>
+                        <Link href={'/category/itemlist/?title='+ cat.id} key={cat.id} >
+                            <a className={"categoryItem"} style={{backgroundImage: `url("http://167.99.16.124:5001${cat.images.url}")`}}><span>{cat.name}</span></a>
                         </Link>
                     );
                 })}     
             </React.Fragment>
         );
        }  else {
-        return <Logo  />
+            return (<React.Fragment><Loading /></React.Fragment>)
        }
     }
 }
