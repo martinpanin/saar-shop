@@ -19,7 +19,6 @@ class Itemlist extends Component {
         // eslint-disable-next-line no-undef
         const res = await fetch(`http://167.99.16.124:5001/categories/${query.slug}`)
         const json = await res.json()
-        console.log(json)
         return { products: json.products }
 
     }
@@ -30,11 +29,13 @@ class Itemlist extends Component {
                 <React.Fragment>
                     <Head title={this.state.title} />
                     {products.map((products) => {
-                        return (
-                            <Link  href={'/product?id=' + products.id} as={'/product/' + products.id} key={products.id} >
-                                <a className={"categoryItem"} style={{backgroundImage: `url("http://167.99.16.124:5001${products.images[0].url}")`}}><span>{products.name}</span></a>
-                            </Link>
-                        );
+                        if(products.active){
+                            return (
+                                <Link prefetch href={'/product?id=' + products.id} as={'/product/' + products.id} key={products.id} >
+                                    <a className={"ItemList"} style={{backgroundImage: `url("http://167.99.16.124:5001${products.images[0].url}")`}}><span>{products.name}</span></a>
+                                </Link>
+                            );
+                        }
                     })}
                 </React.Fragment>
             );

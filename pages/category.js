@@ -18,6 +18,7 @@ class Category extends Component {
         // eslint-disable-next-line no-undef
         const res = await fetch('http://167.99.16.124:5001/categories/')
         const json = await res.json()
+
         return { categories: json }
     }
     
@@ -26,12 +27,14 @@ class Category extends Component {
         return(
             <React.Fragment>
                 <Head title={this.state.title} />
-                {cat.map((cat) => {
-                    return (
-                        <Link href={'/category/itemlist?id=' + cat.id} as={'/category/itemlist/' + cat.id}  prefetch  key={cat.id} >
-                            <a className={"categoryItem"} style={{backgroundImage: `url("http://167.99.16.124:5001${cat.images.url}")`}}><span>{cat.name}</span></a>
-                        </Link>
-                    );
+                {cat.map((cat,index) => {
+                    if(cat.products.length>0){
+                        return (
+                            <Link href={'/category/itemlist?id=' + cat.id} as={'/category/itemlist/' + cat.id}  prefetch  key={cat.id} >
+                                <a className={"categoryItem"} style={{backgroundImage: `url("http://167.99.16.124:5001${cat.images.url}")`}}><span>{cat.name}</span></a>
+                            </Link>
+                        );
+                    }
                 })}     
             </React.Fragment>
         );

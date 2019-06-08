@@ -2,11 +2,16 @@
 
 @import "./components/Home";
 @import "./components/Category";
+@import "./components/ItemList";
+@import "./components/Product";
+
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
 
 body {
   margin: 0;
   padding: 0;
   background-color: $black;
   color:$white;
+  font-family: 'Comfortaa', cursive;
 }
 
