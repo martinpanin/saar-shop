@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import  Link from "next/link";
-import Head from "../components/Head";
+
 import Logo from "../components/Logo";
-import axios from "axios";
+import 'isomorphic-unfetch';
 import LoremIpsum from "../components/LoremIpsum";
 
 
@@ -12,39 +11,38 @@ class Products extends Component {
         super(props);
         this.state = {
             title:"Product",
-            products:[],
-            loading:true
         }
     }
-    componentDidMount(){
-        axios.get('http://167.99.16.124:5001/products')
-            .then(function (response) {
-                const categories = response.data;
-                this.setState({categories:categories, loading:false})
-            }.bind(this))
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
+
+    static async getInitialProps ({ query }) {
+        // eslint-disable-next-line no-undef
+        const res = await fetch(`http://167.99.16.124:5001/products/${query.slug}`)
+        const json = await res.json()
+        console.log(query.slug,json)
+        return { product: json }
+
     }
-    render(products=this.state.products) {
-        if(!this.state.loading){
+    render(product=this.props.product) {
             return(
                 <React.Fragment>
-                    <Head title={this.state.title} />
-                    <h2 className="categoryList-title">Available product ({products.length})</h2>
-                    {products.map((products) => {
-                        return (
-                            <Link href={'/category/products?title='+ products.id} key={products.id} >
-                                <a className={"categoryItem"} style={{backgroundImage: `url("http://167.99.16.124:5001${products.image.url}")`}}><span>{products.name}</span></a>
-                            </Link>
-                        );
+                    {product.id}<br/>
+                    {product.name}<br/>
+                    {product.price}<br/>
+                    {product.active}<br/>
+                    {product.xs}<br/>
+                    {product.s}<br/>
+                    {product.m}<br/>
+                    {product.l}<br/>
+                    {product.xl}<br/>
+                    {product.description}<br/>
+                    {product.images.map((image,index)=>{
+                        <img src={ `http://167.99.16.124:5001${image.url}`}/>
+
                     })}
+
                 </React.Fragment>
             );
-        }  else {
-            return (<React.Fragment><Logo  /></React.Fragment>)
-        }
+
     }
 }
 export default Products;
