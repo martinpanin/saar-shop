@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import BuyButton  from '../components/BuyButton'
-import Logo from "../components/Logo";
 import 'isomorphic-unfetch';
-import LoremIpsum from "../components/LoremIpsum";
-import Parallax from "../components/Parallax";
-
-
 
 class Products extends Component {
     constructor(props) {
@@ -22,7 +17,7 @@ class Products extends Component {
         // eslint-disable-next-line no-undef
         const res = await fetch(`http://167.99.16.124:5001/products/${query.slug}`)
         const json = await res.json()
-        console.log(query.slug)
+
         return { product: json, query: query.slug }
 
     }
@@ -69,7 +64,7 @@ class Products extends Component {
                             <strong>Description</strong><br/>{product.description}
                         </section>
                         <BuyButton
-                            link={`http://localhost:3000/product/${this.props.query}`}
+                            link={`/product/${this.props.query}`}
                             product={this.props.product}
                         />
                     </section>
