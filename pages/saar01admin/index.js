@@ -14,7 +14,7 @@ class Index extends Component {
     render() {
         return(
             <React.Fragment>
-            sdf
+
 
             </React.Fragment>
         );
