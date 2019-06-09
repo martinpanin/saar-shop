@@ -1,6 +1,5 @@
 const express = require('express')
 const next = require('next')
-const fetch = require("node-fetch");
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
@@ -13,8 +12,11 @@ app
         server.get('/category/itemlist/:slug', (req, res) => {
             return app.render(req, res, '/itemlist', { slug: req.params.slug })
         })
-        server.get('/product/:slug', (req, res) => {
+        server.get('/category/product/:slug', (req, res) => {
             return app.render(req, res, '/products', { slug: req.params.slug })
+        })
+        server.get('/category/', (req, res) => {
+            return app.render(req, res, '/category', { slug: req.params.slug })
         })
         server.get('*', (req, res) => {
             return handle(req, res)

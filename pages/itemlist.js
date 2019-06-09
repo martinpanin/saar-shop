@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import  Link from "next/link";
 import Head from "../components/Head";
-import { withRouter } from 'next/router'
 import 'isomorphic-unfetch';
+import BackButton from "../components/BackButton";
 
 
 class Itemlist extends Component {
     constructor(props) {
         super(props);
+        const  link =  `/category`;
         this.state = {
             title:"Product",
-
+            link:  link
         }
     }
 
@@ -28,10 +29,11 @@ class Itemlist extends Component {
             return(
                 <React.Fragment>
                     <Head title={this.state.title} />
+                    <BackButton  link={this.state.link}/>
                     {products.map((products) => {
                         if(products.active){
                             return (
-                                <Link prefetch href={'/product?id=' + products.id} as={'/product/' + products.id} key={products.id} >
+                                <Link prefetch href={'/category/product?id=' + products.id} as={'/category/product/' + products.id} key={products.id} >
                                     <a className={"ItemList"} style={{backgroundImage: `url("http://167.99.16.124:5001${products.images[0].url}")`}}><span>{products.name}</span></a>
                                 </Link>
                             );

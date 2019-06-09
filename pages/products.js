@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import BuyButton  from '../components/BuyButton'
 import 'isomorphic-unfetch';
+import BackButton from "../components/BackButton";
 
 class Products extends Component {
     constructor(props) {
         super(props);
+        const  link =  `/category/itemlist/${this.props.product.category.id}`;
         this.state = {
             title:"Product",
             selectedImage:'',
             heroOpen: false,
-            mouseHover: false
+            mouseHover: false,
+            selectedSize: '',
+            link:link
         }
     }
 
@@ -19,6 +23,9 @@ class Products extends Component {
         const json = await res.json()
 
         return { product: json, query: query.slug }
+
+    }
+    componentDidMount() {
 
     }
 
@@ -39,32 +46,39 @@ class Products extends Component {
             mouseHover: !this.state.mouseHover,
         })
     }
-    render(product=this.props.product) {
+
+    handleSize=(size)=>{
+        this.setState({
+            selectedSize: size,
+        })
+    }
+    render(product=this.props.product, size=this.state.selectedSize) {
             return(
                 <React.Fragment>
                     <section onClick={this.handleHero} className={this.state.heroOpen ? 'hero open' : 'hero'} style={{backgroundImage: `url("http://167.99.16.124:5001/${this.state.selectedImage ? this.state.selectedImage : product.images[0].url}")`}}>
-                        <h1 onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}><span>{this.state.mouseHover? <img width={100}  src={'/static/img/magnifying.png'}/> : product.name}</span></h1>
-                       {/* <Parallax  backgroundImage={`http://167.99.16.124:5001/${this.state.selectedImage ? this.state.selectedImage : product.images[0].url}`}/>*/}
+                        <h1 onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}><span>{this.state.mouseHover? <img width={100} src={'/static/img/zoom-in.svg'}/> : product.name}</span></h1>
+                        <BackButton  link={this.state.link}/>
                     </section>
                     <section className={'slides'}>
                         {product.images.length > 1 ? product.images.map((image,index)=>{
-                            return(<img key={index} onClick={this.handleImg.bind(this, image.url)} src={`http://167.99.16.124:5001/${image.url}`}/>)
+                            return(<img key={image.id} onClick={this.handleImg.bind(this, image.url)} src={`http://167.99.16.124:5001/${image.url}`}/>)
                         }): ''}
                     </section>
                     <section className={'card'}>
-                        <section className={'sizes'}>
-                            Available sizes:
-                            {product.xs ? <span className={'available'}>xs</span> : ''}
-                            {product.s ? <span className={'available'}>s</span> : ''}
-                            {product.m ? <span className={'available'}>m</span> : ''}
-                            {product.l ? <span className={'available'}>l</span> : ''}
-                            {product.xl ? <span className={'available'}>xl</span> : ''}
-                        </section>
                         <section className={'description'}>
                             <strong>Description</strong><br/>{product.description}
                         </section>
+                        <section className={'sizes'}>
+                            Select size:
+                            {product.xs ? <button onClick={this.handleSize.bind(this, 'XS')} className={size ==='XS' ? 'available selected' : 'available'}>xs</button> : ''}
+                            {product.s ? <button onClick={this.handleSize.bind(this, 'S')} className={size ==='S' ? 'available selected' : 'available'}>s</button> : ''}
+                            {product.m ? <button onClick={this.handleSize.bind(this, 'M')} className={size ==='M' ? 'available selected' : 'available'}>m</button> : ''}
+                            {product.l ? <button onClick={this.handleSize.bind(this, 'L')} className={size ==='L' ? 'available selected' : 'available'}>l</button> : ''}
+                            {product.xl ? <button onClick={this.handleSize.bind(this, 'XL')} className={size ==='XL' ? 'available selected' : 'available'}>xl</button> : ''}
+                        </section>
                         <BuyButton
-                            link={`/product/${this.props.query}`}
+                            size={this.state.selectedSize}
+                            link={`http://167.99.16.124:5001/products/`}
                             product={this.props.product}
                         />
                     </section>
