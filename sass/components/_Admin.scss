@@ -1,0 +1,30 @@
+
+
+.container-admin{
+    display: flex;
+    width:100%;
+    height: 100vh;
+    
+}
+.admin-login{
+    margin:auto;
+    text-align: center;
+    input{
+        margin: 5px;
+        border-radius: 50px;
+    }
+    button{
+        background: black;
+        border: 1ps solid white;
+        padding: 10px;
+        margin: 5px;
+        color:white;
+        border-radius: 50px;
+        transition: 0.5s;
+        &:hover{
+        background: white;
+        border: 1ps solid white;
+        color:black;
+        }
+    }
+}
