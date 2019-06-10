@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import  Link from "next/link";
-import { conditionalExpression } from "babel-types";
 
-class Index extends Component {
+class Update extends Component {
     constructor(props) {
         super(props);
         
@@ -64,6 +63,7 @@ class Index extends Component {
             })
         }
 
+   
     render() {
         if(this.state.loggedIn) {
             return(
@@ -111,4 +111,4 @@ class Index extends Component {
         
     }
 }
-export default Index;
+export default Update;

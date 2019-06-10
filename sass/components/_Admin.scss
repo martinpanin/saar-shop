@@ -15,7 +15,7 @@
     }
     button{
         background: black;
-        border: 1ps solid white;
+        border: 2px solid white;
         padding: 10px;
         margin: 5px;
         color:white;
@@ -25,6 +25,59 @@
         background: white;
         border: 1ps solid white;
         color:black;
+        }
+    }
+    span{
+        background: black;
+        border: 2px solid white;
+        padding: 10px;
+        margin: 5px;
+        color:white;
+    }
+    .productBtn{
+        background: #311b92;
+        border: 2px solid white;
+        border-right: none;
+        padding: 10px;
+        margin: 5px;
+        margin-right: 0;
+        color:white;
+    }
+    .categoryBtn{
+        background: #1b5e20;
+        border: 2px solid white;
+        border-left: none;
+        padding: 10px;
+        margin: 5px;
+        margin-left: 0;
+        color:white;
+    }
+}
+
+.admin-variant{
+    width:100%;
+    height: 30vh;
+    display: flex;
+    flex-flow:column wrap;
+    :nth-child(1) {
+        background: #1b5e20;
+    }
+      :nth-child(2) {
+        background: #311b92;
+      }
+      :nth-child(3) {
+        background: #bf360c;
+      }
+    a{
+        display: block;
+        margin: auto;
+        padding: 20px 40px;
+        border:2px solid white;
+        border-radius: 50px;
+        color: white;
+        text-transform: uppercase;
+        &:hover{
+            opacity: 0.8;
         }
     }
 }

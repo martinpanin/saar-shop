@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import  Link from "next/link";
-import { conditionalExpression } from "babel-types";
 
-class Index extends Component {
+class Delete extends Component {
     constructor(props) {
         super(props);
         
@@ -63,34 +62,12 @@ class Index extends Component {
                 [event.target.name]: event.target.value
             })
         }
-
+   
     render() {
         if(this.state.loggedIn) {
             return(
                 <React.Fragment>
-                        <section className={'admin-login'}>
-                            Hello {this.state.user}
-                            <Link href={`${window.location.protocol}//${window.location.hostname}${window.location.port}/saar01admin`}>
-                                <button onClick={this.handleLogout.bind(this)}>Log out</button>
-                            </Link>
-                        </section>
-                    <section className={'admin-variant'}>
-                        <Link href={`${window.location.href}/add`}>
-                            <a>
-                                Add
-                            </a>
-                        </Link>
-                        <Link href={`${window.location.href}/update`}>
-                            <a>
-                                Update
-                            </a>
-                        </Link>
-                        <Link href={`${window.location.href}/delete`}>
-                            <a>
-                                Delete
-                            </a>
-                        </Link>
-                    </section>
+                  add
                 </React.Fragment>
             );
         } else {
@@ -111,4 +88,4 @@ class Index extends Component {
         
     }
 }
-export default Index;
+export default Delete;
