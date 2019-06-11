@@ -22,10 +22,7 @@ class Index extends Component {
                 token: token,
                 user:user,
             })
-            console.log(user)
         }
-    
-
     }
 
     handleLogout=()=> {

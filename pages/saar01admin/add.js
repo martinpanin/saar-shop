@@ -102,13 +102,12 @@ class Add extends Component {
                                 Hello {this.state.user}
                                 <Link href={`${window.location.protocol}//${window.location.hostname}${window.location.port}/saar01admin`}>
                                     <button onClick={this.handleLogout.bind(this)}>Log out</button>
-                                </Link> | Adding: <span>{this.state.type}</span> |
-                                 <a className={'productBtn'} onClick={this.handleType.bind(this,'product')}>
+                                </Link> | <a className={'productBtn'} onClick={this.handleType.bind(this,'product')}>
                                     Product
                                 </a>
                                 <a className={'categoryBtn'} onClick={this.handleType.bind(this,'category')}>
                                     Category
-                                </a>
+                                </a> | Adding: <span>{this.state.type}</span> 
                             </section>
                             <section className={'addForm'}>
                             <AddForm type={this.state.type}/>

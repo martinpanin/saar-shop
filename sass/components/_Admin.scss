@@ -9,6 +9,7 @@
 .admin-login{
     margin:auto;
     text-align: center;
+    width: 100%
     input{
         margin: 5px;
         border-radius: 50px;
@@ -42,6 +43,7 @@
         margin: 5px;
         margin-right: 0;
         color:white;
+        cursor: pointer;
     }
     .categoryBtn{
         background: #1b5e20;
@@ -51,6 +53,7 @@
         margin: 5px;
         margin-left: 0;
         color:white;
+        cursor: pointer;
     }
 }
 
@@ -76,8 +79,26 @@
         border-radius: 50px;
         color: white;
         text-transform: uppercase;
+        cursor: pointer;
         &:hover{
             opacity: 0.8;
         }
     }
+}
+.addForm{
+    display: flex;
+    width: 100%;
+    form{
+        margin: auto;
+        padding: 30px;
+    }
+    label{
+        width: 100%;
+        margin-top: 30px;
+    }
+    input{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
 }
