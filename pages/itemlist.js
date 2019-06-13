@@ -18,7 +18,7 @@ class Itemlist extends Component {
 
     static async getInitialProps ({ query }) {
         // eslint-disable-next-line no-undef
-        const res = await fetch(`http://167.99.16.124:5001/categories/${query.slug}`)
+        const res = await fetch(`http://api.geekdev.ee:5001/categories/${query.slug}`)
         const json = await res.json()
         return { products: json.products }
 
@@ -33,8 +33,8 @@ class Itemlist extends Component {
                     {products.map((products) => {
                         if(products.active){
                             return (
-                                <Link prefetch href={'/category/product?id=' + products.id} as={'/category/product/' + products.id} key={products.id} >
-                                    <a className={"ItemList"} style={{backgroundImage: `url("http://167.99.16.124:5001${products.images[0].url}")`}}><span>{products.name}</span></a>
+                                <Link href={'/category/product?id=' + products.id} as={'/category/product/' + products.id} key={products.id} >
+                                    <a className={"ItemList"} style={{backgroundImage: `url("http://api.geekdev.ee:5001${products.images[0].url}")`}}><span>{products.name}</span></a>
                                 </Link>
                             );
                         }

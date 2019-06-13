@@ -19,7 +19,7 @@ class Products extends Component {
 
     static async getInitialProps ({ query }) {
         // eslint-disable-next-line no-undef
-        const res = await fetch(`http://167.99.16.124:5001/products/${query.slug}`)
+        const res = await fetch(`http://api.geekdev.ee:5001/products/${query.slug}`)
         const json = await res.json()
 
         return { product: json, query: query.slug }
@@ -55,13 +55,13 @@ class Products extends Component {
     render(product=this.props.product, size=this.state.selectedSize) {
             return(
                 <React.Fragment>
-                    <section onClick={this.handleHero} className={this.state.heroOpen ? 'hero open' : 'hero'} style={{backgroundImage: `url("http://167.99.16.124:5001/${this.state.selectedImage ? this.state.selectedImage : product.images[0].url}")`}}>
+                    <section onClick={this.handleHero} className={this.state.heroOpen ? 'hero open' : 'hero'} style={{backgroundImage: `url("http://api.geekdev.ee:5001/${this.state.selectedImage ? this.state.selectedImage : product.images[0].url}")`}}>
                         <h1 onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}><span>{this.state.mouseHover? <img width={100} src={'/static/img/zoom-in.svg'}/> : product.name}</span></h1>
                         <BackButton  link={this.state.link}/>
                     </section>
                     <section className={'slides'}>
                         {product.images.length > 1 ? product.images.map((image,index)=>{
-                            return(<img key={image.id} onClick={this.handleImg.bind(this, image.url)} src={`http://167.99.16.124:5001/${image.url}`}/>)
+                            return(<img key={image.id} onClick={this.handleImg.bind(this, image.url)} src={`http://api.geekdev.ee:5001/${image.url}`}/>)
                         }): ''}
                     </section>
                     <section className={'card'}>
