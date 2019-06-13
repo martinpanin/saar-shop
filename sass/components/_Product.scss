@@ -16,6 +16,8 @@
     flex-grow: 0;
     flex-shrink: 0;
     height: 10vw;
+    margin:5px;
+    border:2px solid white;
   }
 
 }
@@ -26,6 +28,7 @@
   background-position: center;
   background-size: cover;
   transition: 0.5s;
+  border: 2px solid white;
 
   &.open{
     height: 100vh;
@@ -100,6 +103,7 @@
   opacity: 1;
   transition: 0.5s;
   z-index: 1;
+  border-left: 2px solid white;
   &:hover{
     opacity: 0.4;
   }
