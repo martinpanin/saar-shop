@@ -66,7 +66,7 @@ class Products extends Component {
                     </section>
                     <section className={'card'}>
                         <section className={'description'}>
-                            <strong>Description</strong><br/>{product.description}
+                            {product.description ? <React.Fragment><strong>Description</strong><br/>{product.description}</React.Fragment> : ''}
                         </section>
                         <section className={'sizes'}>
                             Select size:

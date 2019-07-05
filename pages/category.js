@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import  Link from "next/link";
 import Head from "../components/Head";
 import 'isomorphic-unfetch';
+import Footer from "../components/Footer";
 
 
 class Category extends Component {
@@ -36,6 +37,7 @@ class Category extends Component {
                         );
                     }
                 })}     
+                <Footer/>
             </React.Fragment>
         );
     }
