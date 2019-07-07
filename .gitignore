@@ -61,3 +61,8 @@ typings/
 .next
 package-lock.json
 Archive.zip
+.idea/misc.xml
+.idea/saar-shop.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/vcs.xml
