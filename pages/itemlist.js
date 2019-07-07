@@ -3,6 +3,7 @@ import  Link from "next/link";
 import Head from "../components/Head";
 import 'isomorphic-unfetch';
 import BackButton from "../components/BackButton";
+import Footer from "../components/Footer";
 
 
 class Itemlist extends Component {
@@ -39,6 +40,7 @@ class Itemlist extends Component {
                             );
                         }
                     })}
+                    <Footer/>
                 </React.Fragment>
             );
     }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BuyButton  from '../components/BuyButton'
 import 'isomorphic-unfetch';
 import BackButton from "../components/BackButton";
+import Footer from "../components/Footer";
 
 class Products extends Component {
     constructor(props) {
@@ -82,6 +83,7 @@ class Products extends Component {
                             product={this.props.product}
                         />
                     </section>
+                    <Footer/>
                 </React.Fragment>
             );
 
