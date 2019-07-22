@@ -33,7 +33,7 @@ class Index extends Component {
     }
 
     handleLogin=(user,pass)=> {
-        axios.post('http://167.99.16.124:5001/auth/local', {
+        axios.post('http://api.geekdev.ee:5001/auth/local', {
             identifier: user,
             password: pass
         })
@@ -42,7 +42,6 @@ class Index extends Component {
             sessionStorage.setItem('token', response.data.jwt);
             sessionStorage.setItem('user', response.data.user);
             const user =  response.data.user.username ;
-            console.log(user)
             this.setState({
                 loggedIn: true,
                 user:user,
@@ -66,7 +65,6 @@ class Index extends Component {
             return(
                 <React.Fragment>
                         <section className={'admin-login'}>
-                            Hello {this.state.user}
                             <Link href={`${window.location.protocol}//${window.location.hostname}${window.location.port}/saar01admin`}>
                                 <button onClick={this.handleLogout.bind(this)}>Log out</button>
                             </Link>
