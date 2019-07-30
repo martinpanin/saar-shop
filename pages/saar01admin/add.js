@@ -10,7 +10,8 @@ class Add extends Component {
         this.state = {
             title:"Saar Cult",
             loggedIn: false,
-            type:'none'
+            type:'none',
+            token:'',
         }
     }
 
@@ -37,7 +38,7 @@ class Add extends Component {
     }
 
     handleLogin=(user,pass)=> {
-        axios.post('http://167.99.16.124:5001/auth/local', {
+        axios.post('http://api.geekdev.ee:5001/auth/local', {
             identifier: user,
             password: pass
         })
@@ -99,7 +100,7 @@ class Add extends Component {
                 return(
                     <React.Fragment>
                         <section className={'admin-login'}>
-                                Hello {this.state.user}
+
                                 <Link href={`${window.location.protocol}//${window.location.hostname}${window.location.port}/saar01admin`}>
                                     <button onClick={this.handleLogout.bind(this)}>Log out</button>
                                 </Link> | <a className={'productBtn'} onClick={this.handleType.bind(this,'product')}>
@@ -110,7 +111,7 @@ class Add extends Component {
                                 </a> | Adding: <span>{this.state.type}</span> 
                             </section>
                             <section className={'addForm'}>
-                            <AddForm type={this.state.type}/>
+                            <AddForm token={this.state.token} type={this.state.type}/>
                             </section>
                       
                     </React.Fragment>
