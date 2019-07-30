@@ -39,7 +39,9 @@ class AddForm extends Component {
 
     handlePost =(e)=>{
         e.preventDefault();
-        axios.post(`http://api.geekdev.ee:5001/products?token=${this.props.token}`, {
+        axios.post(`http://api.geekdev.ee:5001/products`, {
+            headers: {"Authorization" : `Bearer ${this.props.token}`},
+            name:this.state.name
 
         })
             .then(function (response) {
