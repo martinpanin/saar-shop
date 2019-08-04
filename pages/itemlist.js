@@ -19,7 +19,7 @@ class Itemlist extends Component {
 
     static async getInitialProps ({ query }) {
         // eslint-disable-next-line no-undef
-        const res = await fetch(`http://api.geekdev.ee:5001/categories/${query.slug}`)
+        const res = await fetch(`https://api.saarcult.ee/categories/${query.slug}`)
         const json = await res.json()
         return { products: json.products }
 
@@ -35,7 +35,7 @@ class Itemlist extends Component {
                         if(products.active){
                             return (
                                 <Link href={'/category/product?id=' + products.id} as={'/category/product/' + products.id} key={products.id} >
-                                    <a className={"ItemList"} style={{backgroundImage: `url("http://api.geekdev.ee:5001${products.images[0].url}")`}}><span>{products.name}</span></a>
+                                    <a className={"ItemList"} style={{backgroundImage: `url("https://api.saarcult.ee/${products.images[0].url}")`}}><span>{products.name}</span></a>
                                 </Link>
                             );
                         }

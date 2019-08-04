@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-const  api =  `http://api.geekdev.ee:5001/categories/`;
+const  api =  `https://api.saarcult.ee/categories/`;
 class AddForm extends Component {
     constructor(props) {
         super(props);
@@ -37,11 +37,16 @@ class AddForm extends Component {
         
     }
 
-    handlePost =(e)=>{
+     handlePost = e=>{
         e.preventDefault();
-        axios.post(`http://api.geekdev.ee:5001/products`, {
-            headers: {"Authorization" : `Bearer ${this.props.token}`},
-            name:this.state.name
+        axios.post(`https://api.saarcult.ee/${this.props.type}`, {
+            headers: {
+                Authorization: `Bearer ${this.props.token}`
+            },
+            data: {
+                name: "1"
+            }
+
 
         })
             .then(function (response) {
@@ -53,7 +58,7 @@ class AddForm extends Component {
     }
 
     render(type=this.props.type) {
-       if(type === 'product'){
+       if(type === 'products'){
         return (
             <React.Fragment>
                 <form>
@@ -99,7 +104,7 @@ class AddForm extends Component {
                 </form>
             </React.Fragment>
         );
-       } else if(type === 'category'){
+       } else if(type === 'categories'){
         return (
             <React.Fragment>
                 <form>
@@ -108,7 +113,7 @@ class AddForm extends Component {
                     <input onChange={this.handleChange} name={'name'} type={'text'}/>
                     <label>Image</label>
                     <input onChange={this.handleChange} name={'image'} type={'file'}/>
-                    <button type={"submit"}>Send</button>
+                    <button onClick={this.handlePost} type={"submit"}>Send</button>
                 </form>
             </React.Fragment>
         );

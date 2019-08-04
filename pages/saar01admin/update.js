@@ -35,7 +35,7 @@ class Update extends Component {
     }
 
     handleLogin=(user,pass)=> {
-        axios.post('http://api.geekdev.ee:5001/auth/local', {
+        axios.post('https://api.saarcult.ee/auth/local', {
             identifier: user,
             password: pass
         })

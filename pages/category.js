@@ -17,7 +17,7 @@ class Category extends Component {
 
     static async getInitialProps () {
         // eslint-disable-next-line no-undef
-        const res = await fetch('http://api.geekdev.ee:5001/categories/')
+        const res = await fetch('https://api.saarcult.ee/categories/')
         const json = await res.json()
 
         return { categories: json }
@@ -32,7 +32,7 @@ class Category extends Component {
                     if(cat.products.length>0){
                         return (
                             <Link href={'/category/itemlist?id=' + cat.id} as={'/category/itemlist/' + cat.id}  prefetch  key={cat.id} >
-                                <a className={"categoryItem"} style={{backgroundImage: `url("http://api.geekdev.ee:5001${cat.images.url}")`}}><span>{cat.name}</span></a>
+                                <a className={"categoryItem"} style={{backgroundImage: `url("https://api.saarcult.ee/${cat.images.url}")`}}><span>{cat.name}</span></a>
                             </Link>
                         );
                     }

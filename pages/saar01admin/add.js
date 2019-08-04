@@ -38,7 +38,7 @@ class Add extends Component {
     }
 
     handleLogin=(user,pass)=> {
-        axios.post('http://api.geekdev.ee:5001/auth/local', {
+        axios.post('https://api.saarcult.ee/auth/local', {
             identifier: user,
             password: pass
         })
@@ -85,11 +85,11 @@ class Add extends Component {
                                 </Link>
                             </section>
                         <section className={'admin-variant'}>
-                                <a onClick={this.handleType.bind(this,'product')}>
+                                <a onClick={this.handleType.bind(this,'products')}>
                                     Product
                                 </a>
 
-                                <a onClick={this.handleType.bind(this,'category')}>
+                                <a onClick={this.handleType.bind(this,'categories')}>
                                     Category
                                 </a>
                             

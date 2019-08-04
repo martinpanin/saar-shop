@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import  Link from "next/link";
-import { conditionalExpression } from "babel-types";
 
 class Index extends Component {
     constructor(props) {
@@ -33,7 +32,7 @@ class Index extends Component {
     }
 
     handleLogin=(user,pass)=> {
-        axios.post('http://api.geekdev.ee:5001/auth/local', {
+        axios.post('https://api.saarcult.ee/auth/local', {
             identifier: user,
             password: pass
         })

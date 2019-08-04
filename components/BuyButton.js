@@ -15,7 +15,7 @@ class BuyButton extends Component {
                     data-item-custom1-name="Size"
                     data-item-custom1-options="XS|S|M|L|XL"
                     data-item-custom1-value={props.size}
-                    data-item-url={'http://api.geekdev.ee:5001/products/'}
+                    data-item-url={'https://api.saarcult.ee/products/'}
                     data-item-description={product.description}>
                     ADD TO CART <br/>
                     {props.size? `Size:${props.size}` : ''} {props.size?`| ${product.price}€`: `(${product.price}€)`}

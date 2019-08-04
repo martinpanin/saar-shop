@@ -35,7 +35,7 @@ class Delete extends Component {
     }
 
     handleLogin=(user,pass)=> {
-        axios.post('http://167.99.16.124:5001/auth/local', {
+        axios.post('https://api.saarcult.ee//auth/local', {
             identifier: user,
             password: pass
         })
