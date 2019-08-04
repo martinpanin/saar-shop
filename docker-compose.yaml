@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    image: strapi/strapi
+    environment:
+      - APP_NAME=saarcult
+      - DATABASE_CLIENT=mongo
+      - DATABASE_HOST=db
+      - DATABASE_PORT=50012
+      - DATABASE_NAME=saar-mongo
+      - DATABASE_USERNAME=
+      - DATABASE_PASSWORD=
+      - DATABASE_SSL=false
+      - DATABASE_AUTHENTICATION_DATABASE=strapi
+      - HOST=localhost
+    ports:
+      - 50011:1337
+    volumes:
+      - ./strapi-app:/usr/src/api/strapi-app
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=saar-mongo
+    ports:
+      - 50012:27017
+    volumes:
+      - ./db:/data/db
+    restart: always
+
+  saar:
+    build: .
+    image: saarcult:latest
+    ports:
+      - 5001:3000
+    restart: always
